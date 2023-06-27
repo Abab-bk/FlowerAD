@@ -28,6 +28,68 @@ Godot 中选择项目 -> 安装 Android 构建模板。此时你的项目文件�
 
 注意：目前只有激励视频，因为我只用到了激励视频，其他类型广告自己写，照着我的抄就行了，很简单，要看着口袋工厂提供的文档。
 
+## 在Godot中使用：
+
+```gdscript
+extends Node
+
+var ad
+
+signal reward_get
+signal reward_failed
+signal reward_closed
+signal reward_skip
+
+func _ready() -> void:
+	if ad != null:
+		ad.adReady.connect(Callable(self, "adReady"))
+		ad.RewardGet.connect(Callable(self, "RewardGet"))
+		ad.RewardClosed.connect(Callable(self, "RewardClosed"))
+		ad.RewardFailed.connect(Callable(self, "RewardFailed"))
+		ad.RewardSkip.connect(Callable(self, "RewardSkip"))
+
+func is_android() -> bool:
+	if OS.get_name() == "Android" && Engine.has_singleton("RealPocket"):
+		return true
+	else:
+		return false
+
+func _init() -> void:
+	if OS.get_name() == "Android" && Engine.has_singleton("RealPocket"):
+		ad = Engine.get_singleton("RealPocket")
+	else:
+		print("无法初始化广告")
+
+func adReady() -> void:
+	if ad != null:
+		Uhd.new_message_popup("广告", "准备完毕")
+
+func ShowRewardAD(id:String = "57075") -> void:
+	if ad != null:
+		print("点击广告")
+		ad.ShowRewardVideoAd(id)
+
+func RewardSkip():
+	if ad != null:
+		reward_skip.emit()
+
+func RewardClosed():
+	if ad != null:
+		reward_closed.emit()
+
+func RewardGet():
+	if ad != null:
+		reward_get.emit()
+
+func RewardFailed():
+	if ad != null:
+		reward_failed.emit()
+
+
+```
+
+
+
 ## 感谢
 
 小沙盒：[小沙盒工作室的个人空间-小沙盒工作室个人主页-哔哩哔哩视频 (bilibili.com)](https://space.bilibili.com/26680057)
