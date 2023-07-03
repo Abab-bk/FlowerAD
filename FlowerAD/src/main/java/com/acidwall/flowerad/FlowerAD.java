@@ -65,12 +65,21 @@ public class FlowerAD extends GodotPlugin {
         return this.layout;
     }
 
+    private RewardVideoAD VideoAd;
+
+    @UsedByGodot
+    public void DisRewardVideoAD() {
+        if (VideoAd != null) {
+            VideoAd.destroy();
+        }
+    }
+
     // 展示激励视频
     @UsedByGodot
     public void ShowRewardVideoAd(String id) {
         emitSignal(InitAD.getName());
         Log.e("传入ID: ", id);
-        RewardVideoAD VideoAd = new RewardVideoAD(getActivity(), id);
+        VideoAd = new RewardVideoAD(getActivity(), id);
         VideoAd.setRewardVideoADListener(new RewardVideoADListener() {
             @Override
             public void onFailed(ADError adError) {
