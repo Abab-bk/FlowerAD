@@ -15,6 +15,10 @@ import org.godotengine.godot.plugin.GodotPlugin;
 import org.godotengine.godot.plugin.SignalInfo;
 import org.godotengine.godot.plugin.UsedByGodot;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -61,8 +65,37 @@ public class FlowerAD extends GodotPlugin {
     @Override
     public View onMainCreate(Activity activity) {
         this.layout = new FrameLayout(activity);
-        PocketSdk.initSDK(activity, "taptap", "12519");
+
+        String path = "taptap";
+        String AppID = "12519";
+
+        try {
+            path = read_file("FlowerAD/Path.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            AppID = read_file("FlowerAD/AppID.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        PocketSdk.initSDK(activity, path, AppID);
         return this.layout;
+    }
+
+    public static String read_file(String filePath) throws IOException {
+        StringBuilder content = new StringBuilder();
+        File file = new File(filePath);
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        String line = "";
+        while ((line = reader.readLine()) != null) {
+            content.append(line);
+            content.append(System.lineSeparator());
+        }
+        reader.close();
+        return content.toString();
     }
 
     private RewardVideoAD VideoAd;

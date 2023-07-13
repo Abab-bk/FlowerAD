@@ -24,11 +24,11 @@ Godot 中选择项目 -> 安装 Android 构建模板。此时你的项目文件�
 
 - 修改 FlowerAD/build.gradle 第35 - 40行，文件名改为你替换的文件。
 
-打开  ```FlowerAD/src/main/java/com/acidwall/flowerad/FlowerAD.java```  转到第64行。
+打开 ``` FlowerAD/AppID.txt ``` 文件，让这个文件里只有你的AppID（口袋工厂创建应用后获取）。
 
-修改  ```PocketSdk.initSDK(activity, "taptap", "12519"); ```  ”taptap“可以不改，12519改为你的口袋工厂APP ID。
+打开 ``` FlowerADPath.txt ``` 文件，在这个文件里写入渠道，可以填taptap（随便填）。
 
-编译：```gradle build```
+编译：```.\gradlew build```
 
 注意：目前只有激励视频，因为我只用到了激励视频，其他类型广告自己写，照着我的抄就行了，很简单，要看着口袋工厂提供的文档。
 
