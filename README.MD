@@ -114,9 +114,3 @@ func RewardFailed():
 小沙盒：[小沙盒工作室的个人空间-小沙盒工作室个人主页-哔哩哔哩视频 (bilibili.com)](https://space.bilibili.com/26680057)
 
 码农不是我：[码农不是我的个人空间-码农不是我个人主页-哔哩哔哩视频 (bilibili.com)](https://space.bilibili.com/496294706)
-
-## 捐赠
-
-给我打钱。
-<img src="https://img1.imgtp.com/2023/06/27/D1Xo8bN9.png" title="" alt="" style="zoom:25%;">
-<img src="https://img1.imgtp.com/2023/06/27/UEtvieW8.jpg" title="" alt="" style="zoom:25%;">
