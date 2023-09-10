@@ -24,9 +24,7 @@ Godot 中选择项目 -> 安装 Android 构建模板。此时你的项目文件�
 
 - 修改 FlowerAD/build.gradle 第35 - 40行，文件名改为你替换的文件。
 
-打开 ``` FlowerAD/AppID.txt ``` 文件，让这个文件里只有你的AppID（口袋工厂创建应用后获取）。
-
-打开 ``` FlowerADPath.txt ``` 文件，在这个文件里写入渠道，可以填taptap（随便填）。
+在代码中修改你的口袋工厂APPID和渠道。
 
 编译：```.\gradlew build```
 
