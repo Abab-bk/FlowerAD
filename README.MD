@@ -2,6 +2,8 @@
 
 Godot4对接口袋工厂SDK。
 
+***已弃用，请使用：https://github.com/Abab-bk/PockAdForGodot4.2***
+
 ## 快速开始
 
 ### 编译插件
